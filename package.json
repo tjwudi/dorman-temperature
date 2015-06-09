@@ -1,0 +1,22 @@
+{
+  "name": "temperature",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ds18b20": "^0.0.2",
+    "soap": "^0.9.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Wu <webmaster@leapoahead.com> (http://www.leapoahead.com/)",
+  "license": "ISC",
+  "optionalDependencies": {
+    "ds18b20": "0.0.2"
+  }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.dorman.io/Temperature/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Temperature" targetNamespace="http://www.dorman.io/Temperature/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.dorman.io/Temperature/">
+      <xsd:element name="GetTemperature">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTemperatureResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="temperature" type="xsd:float"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTemperatureRequest">
+    <wsdl:part element="tns:GetTemperature" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetTemperatureResponse">
+    <wsdl:part element="tns:GetTemperatureResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Temperature">
+    <wsdl:operation name="GetTemperature">
+      <wsdl:input message="tns:GetTemperatureRequest"/>
+      <wsdl:output message="tns:GetTemperatureResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TemperatureSOAP" type="tns:Temperature">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetTemperature">
+      <soap:operation soapAction="http://www.dorman.io/Temperature/GetTemperature"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Temperature">
+    <wsdl:port binding="tns:TemperatureSOAP" name="TemperatureSOAP">
+      <soap:address location="http://localhost:10001"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
