@@ -44,7 +44,7 @@
   </wsdl:binding>
   <wsdl:service name="Temperature">
     <wsdl:port binding="tns:TemperatureSOAP" name="TemperatureSOAP">
-      <soap:address location="http://localhost:10001"/>
+      <soap:address location="http://192.168.0.102:10001"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
