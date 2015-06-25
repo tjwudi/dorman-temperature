@@ -2,6 +2,7 @@
 
 let ds18b20;
 
+console.log('[Temperature] process env: ' + process.env['NODE_ENV']);
 if (process.env['NODE_ENV'] === 'production') {
   ds18b20 = require('ds18b20');
 }
